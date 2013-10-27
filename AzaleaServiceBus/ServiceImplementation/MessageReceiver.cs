@@ -7,7 +7,7 @@ namespace xpan.AzaleaServiceBus.ServiceImplementation
 {
     public class MessageReceiver : IPublish
     {
-        private IRegistrationRepository registrationRepository;
+        private readonly IRegistrationRepository registrationRepository;
 
         public MessageReceiver(IRegistrationRepository registrationRepository)
         {
@@ -37,17 +37,14 @@ namespace xpan.AzaleaServiceBus.ServiceImplementation
                 RaiseDataAvailableEvent(registrationId, serializedObject);
                 return new ResultBase(ResultBase.ResultStatus.Success, string.Empty);
             }
-            else
-            {
-                return new ResultBase(ResultBase.ResultStatus.Fail, "The RegistrationId doesn't exist.");
-            }
+            return new ResultBase(ResultBase.ResultStatus.Fail, "The RegistrationId doesn't exist.");
         }
 
         public event Action<Guid, XmlElement> OnDataAvailable;
 
         private void RaiseDataAvailableEvent(Guid guid, XmlElement data)
         {
-            var onDataAvailable = OnDataAvailable;
+            Action<Guid, XmlElement> onDataAvailable = OnDataAvailable;
             if (onDataAvailable != null)
             {
                 onDataAvailable(guid, data);

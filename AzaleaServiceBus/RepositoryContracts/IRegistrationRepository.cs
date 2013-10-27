@@ -9,5 +9,7 @@ namespace xpan.AzaleaServiceBus.RepositoryContracts
         void Remove(Guid registrationId);
         bool Contains(Type dataType, Guid instanceId);
         bool Contains(Guid registrationId);
+
+        Type GetDataType(Guid registrationId);
     }
 }

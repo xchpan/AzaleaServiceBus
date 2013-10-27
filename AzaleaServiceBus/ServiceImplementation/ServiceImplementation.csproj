@@ -39,8 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICallbackExtractor.cs" />
+    <Compile Include="MessageDispatcher.cs" />
     <Compile Include="MessageReceiver.cs" />
+    <Compile Include="MessageSubscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj">
+      <Project>{74d01da5-83ec-4556-b46a-5c27c03d514b}</Project>
+      <Name>RepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
+      <Project>{3f550c3c-6bc6-46ea-bdc1-62a9ee271e13}</Project>
+      <Name>ServiceContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

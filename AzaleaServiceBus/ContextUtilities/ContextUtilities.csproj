@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{74D01DA5-83EC-4556-B46A-5C27C03D514B}</ProjectGuid>
+    <ProjectGuid>{A11E3D8D-0183-4982-A07B-FC69EC40CEE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xpan.AzaleaServiceBus.RepositoryContracts</RootNamespace>
-    <AssemblyName>xpan.AzaleaServiceBus.RepositoryContracts</AssemblyName>
+    <RootNamespace>ContextUtilities</RootNamespace>
+    <AssemblyName>ContextUtilities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,14 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRegistrationRepository.cs" />
-    <Compile Include="ISubscriptoinRepository.cs" />
+    <Compile Include="CallbackExtrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
-      <Project>{3f550c3c-6bc6-46ea-bdc1-62a9ee271e13}</Project>
-      <Name>ServiceContracts</Name>
+    <ProjectReference Include="..\ServiceImplementation\ServiceImplementation.csproj">
+      <Project>{b9168473-5142-41b0-9180-9fd061ef3d05}</Project>
+      <Name>ServiceImplementation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
