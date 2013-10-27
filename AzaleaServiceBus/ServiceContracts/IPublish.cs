@@ -1,13 +1,15 @@
 ﻿using System;
+using System.ServiceModel;
 using System.Xml;
 
 namespace xpan.AzaleaServiceBus.ServiceContracts
 {
+    [ServiceContract]
     public interface IPublish
     {
         RegistrationResult Register(RegistrationRequest request);
         void Unregister(Guid registratonId);
 
-        void Publish(Guid registrationId, XmlElement serializedObject);
+        ResultBase Publish(Guid registrationId, XmlElement serializedObject);
     }
 }

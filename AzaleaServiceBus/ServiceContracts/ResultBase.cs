@@ -1,22 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace xpan.AzaleaServiceBus.ServiceContracts
 {
-    public abstract class ResultBase
+    [DataContract]
+    public class ResultBase
     {
-        public enum ResultStatus { Success, Fail }
+        public enum ResultStatus
+        {
+            Success,
+            Fail
+        }
 
-        public ResultStatus Status { get; private set; }
-        public string Message { get; private set; }
-
-        protected ResultBase(ResultStatus status, string message)
+        public ResultBase(ResultStatus status, string message)
         {
             Status = status;
             Message = message;
         }
+
+        [DataMember]
+        public ResultStatus Status { get; private set; }
+
+        [DataMember]
+        public string Message { get; private set; }
     }
 }

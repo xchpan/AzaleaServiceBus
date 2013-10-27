@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace xpan.AzaleaServiceBus.ServiceContracts
 {
-    public class SubscribeResult : ResultBase
+    [DataContract]
+    public class SubscribeResult
     {
-        public Guid Id { get; private set; }
-
         public SubscribeResult(ResultBase.ResultStatus status, string message, Guid id)
-            : base(status, message)
         {
             Id = id;
+            ResultState = new ResultBase(status, message);
         }
+
+        [DataMember]
+        public Guid Id { get; private set; }
+
+        [DataMember]
+        public ResultBase ResultState { get; private set; }
     }
 }
