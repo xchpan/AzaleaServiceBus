@@ -9,9 +9,9 @@ namespace xpan.AzaleaServiceBus.ServiceImplementation
     public class MessageSubscriber : ISubscribe
     {
         private readonly ICallbackExtractor<ISubscriberCallback> callbackExtractor;
-        private readonly ISubscriptoinRepository subscriptoinRepository;
+        private readonly ISubscriptionRepository subscriptoinRepository;
 
-        public MessageSubscriber(ISubscriptoinRepository subscriptoinRepository,
+        public MessageSubscriber(ISubscriptionRepository subscriptoinRepository,
             ICallbackExtractor<ISubscriberCallback> callbackExtractor)
         {
             this.subscriptoinRepository = subscriptoinRepository;
