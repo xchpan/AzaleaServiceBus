@@ -5,29 +5,19 @@ using xpan.AzaleaServiceBus.RepositoryContracts;
 
 namespace xpan.AzaleaServiceBus.ServiceImplementation
 {
-    public class MessageDispatcher : IDisposable
+    public class MessageDispatcher : IMessageDispatcher
     {
-        private readonly MessageReceiver publisher;
         private readonly IRegistrationRepository registrationRepository;
         private readonly MessageSubscriber subscriber;
 
         public MessageDispatcher(IRegistrationRepository registrationRepository,
-            MessageSubscriber subscriber,
-            MessageReceiver publisher)
+            MessageSubscriber subscriber)
         {
             this.registrationRepository = registrationRepository;
             this.subscriber = subscriber;
-            this.publisher = publisher;
-            publisher.OnDataAvailable -= OnDataAvailable;
         }
 
-        public void Dispose()
-        {
-            publisher.OnDataAvailable -= OnDataAvailable;
-            GC.SuppressFinalize(this);
-        }
-
-        private void OnDataAvailable(Guid registrationId, XmlElement data)
+        public void OnDataAvailable(Guid registrationId, XmlElement data)
         {
             Task.Factory.StartNew(() => Dispatch(registrationId, data));
         }

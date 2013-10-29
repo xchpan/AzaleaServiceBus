@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextUtilities", "Context
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryRepositories", "InMemoryRepositories\InMemoryRepositories.csproj", "{26536E38-FBE3-44B2-B4F2-851C2EFD580E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionServiceHost", "DependencyInjectionServiceHost\DependencyInjectionServiceHost.csproj", "{FA0972F4-D1A7-448F-B425-2E950AE62689}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{26536E38-FBE3-44B2-B4F2-851C2EFD580E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26536E38-FBE3-44B2-B4F2-851C2EFD580E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26536E38-FBE3-44B2-B4F2-851C2EFD580E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA0972F4-D1A7-448F-B425-2E950AE62689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA0972F4-D1A7-448F-B425-2E950AE62689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA0972F4-D1A7-448F-B425-2E950AE62689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA0972F4-D1A7-448F-B425-2E950AE62689}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
