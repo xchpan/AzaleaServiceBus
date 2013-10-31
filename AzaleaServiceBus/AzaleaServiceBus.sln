@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzaleaServiceBus", "AzaleaServiceBus\AzaleaServiceBus.csproj", "{B2E73D2C-1974-4C1C-9BCB-FCFC095781F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost", "AzaleaServiceBus\WebHost.csproj", "{B2E73D2C-1974-4C1C-9BCB-FCFC095781F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceContracts", "ServiceContracts\ServiceContracts.csproj", "{3F550C3C-6BC6-46EA-BDC1-62A9EE271E13}"
 EndProject
