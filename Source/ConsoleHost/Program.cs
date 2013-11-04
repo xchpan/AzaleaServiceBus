@@ -1,16 +1,17 @@
-﻿using Castle.Windsor;
-using xpan.AzaleaServiceBus.ServiceImplementation;
+﻿using System;
 
 namespace xpan.AzaleaServiceBus.ConsoleHost
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var windsorContainer = new WindsorContainer();
-            DependencyInjectionServiceHost.DependencyInjectionServiceHost host = new DependencyInjectionServiceHost.DependencyInjectionServiceHost(windsorContainer, typeof(MessageReceiver));
+            using (var host = new ServiceBusHost())
+            {
+                host.Open();
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+            }
         }
-
-
     }
 }

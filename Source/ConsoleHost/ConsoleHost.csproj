@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceBusHost.cs" />
+    <Compile Include="ServiceBusService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

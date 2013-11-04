@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using Castle.Windsor;
 
 namespace xpan.AzaleaServiceBus.DependencyInjectionServiceHost
