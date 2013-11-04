@@ -5,7 +5,7 @@ using xpan.AzaleaServiceBus.ServiceContracts;
 
 namespace xpan.AzaleaServiceBus.InMemoryRepositories
 {
-    internal class SubscriptionRepository : ISubscriptionRepository
+    public class SubscriptionRepository : ISubscriptionRepository
     {
         private readonly Dictionary<SubscribeRequest, ISubscriberCallback> callbacks =
             new Dictionary<SubscribeRequest, ISubscriberCallback>();

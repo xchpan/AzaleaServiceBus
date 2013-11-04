@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C5493FE2-CEC0-491C-9053-4D0C7BD0292D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>xpan.AzaleaServiceBus.ConsoleHost</RootNamespace>
+    <AssemblyName>xpan.AzaleaServiceBus.ConsoleHost</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContextUtilities\ContextUtilities.csproj">
+      <Project>{a11e3d8d-0183-4982-a07b-fc69ec40cee4}</Project>
+      <Name>ContextUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DependencyInjectionServiceHost\DependencyInjectionServiceHost.csproj">
+      <Project>{fa0972f4-d1a7-448f-b425-2e950ae62689}</Project>
+      <Name>DependencyInjectionServiceHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InMemoryRepositories\InMemoryRepositories.csproj">
+      <Project>{26536e38-fbe3-44b2-b4f2-851c2efd580e}</Project>
+      <Name>InMemoryRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj">
+      <Project>{74d01da5-83ec-4556-b46a-5c27c03d514b}</Project>
+      <Name>RepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
+      <Project>{3f550c3c-6bc6-46ea-bdc1-62a9ee271e13}</Project>
+      <Name>ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceImplementation\ServiceImplementation.csproj">
+      <Project>{b9168473-5142-41b0-9180-9fd061ef3d05}</Project>
+      <Name>ServiceImplementation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

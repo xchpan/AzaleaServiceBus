@@ -1,23 +1,28 @@
 ﻿using System;
 using System.ServiceModel;
+using Castle.Windsor;
 
 namespace xpan.AzaleaServiceBus.DependencyInjectionServiceHost
 {
-    internal class DependencyInjectionServiceHost : ServiceHost
+    public class DependencyInjectionServiceHost : ServiceHost
     {
-        public DependencyInjectionServiceHost(Type serviceType)
+        private readonly WindsorContainer container;
+
+        public DependencyInjectionServiceHost(WindsorContainer container, Type serviceType)
             : base(serviceType)
         {
+            this.container = container;
         }
 
-        public DependencyInjectionServiceHost(Type serviceType, Uri[] baseAddresses)
+        public DependencyInjectionServiceHost(WindsorContainer container, Type serviceType, Uri[] baseAddresses)
             : base(serviceType, baseAddresses)
         {
+            this.container = container;
         }
 
         protected override void OnOpen(TimeSpan timeout)
         {
-            Description.Behaviors.Add(new DependencyInjectionServiceBehavior());
+            Description.Behaviors.Add(new DependencyInjectionServiceBehavior(container));
             base.OnOpen(timeout);
         }
     }

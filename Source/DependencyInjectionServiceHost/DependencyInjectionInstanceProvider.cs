@@ -2,16 +2,19 @@
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
+using Castle.Windsor;
 
 namespace xpan.AzaleaServiceBus.DependencyInjectionServiceHost
 {
     public class DependencyInjectionInstanceProvider : IInstanceProvider
     {
         private readonly Type _serviceType;
+        private readonly DependencyFactory factory;
 
-        public DependencyInjectionInstanceProvider(Type serviceType)
+        public DependencyInjectionInstanceProvider(Type serviceType, WindsorContainer container)
         {
             _serviceType = serviceType;
+            factory = new DependencyFactory(container);
         }
 
         public object GetInstance(InstanceContext instanceContext)
@@ -21,7 +24,7 @@ namespace xpan.AzaleaServiceBus.DependencyInjectionServiceHost
 
         public object GetInstance(InstanceContext instanceContext, Message message)
         {
-            return DependencyFactory.Resolve(_serviceType);
+            return factory.Resolve(_serviceType);
         }
 
         public void ReleaseInstance(InstanceContext instanceContext, object instance)

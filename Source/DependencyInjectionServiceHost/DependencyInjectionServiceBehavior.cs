@@ -3,11 +3,19 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
+using Castle.Windsor;
 
 namespace xpan.AzaleaServiceBus.DependencyInjectionServiceHost
 {
     internal class DependencyInjectionServiceBehavior : IServiceBehavior
     {
+        private readonly WindsorContainer container;
+
+        public DependencyInjectionServiceBehavior(WindsorContainer container)
+        {
+            this.container = container;
+        }
+
         public void AddBindingParameters(ServiceDescription serviceDescription,
             ServiceHostBase serviceHostBase,
             Collection<ServiceEndpoint> endpoints,
@@ -26,7 +34,7 @@ namespace xpan.AzaleaServiceBus.DependencyInjectionServiceHost
                     foreach (EndpointDispatcher ed in cd.Endpoints)
                     {
                         ed.DispatchRuntime.InstanceProvider =
-                            new DependencyInjectionInstanceProvider(serviceDescription.ServiceType);
+                            new DependencyInjectionInstanceProvider(serviceDescription.ServiceType, container);
                     }
                 }
             }

@@ -1,25 +1,26 @@
 ﻿using System;
+using System.ComponentModel;
 using Castle.Windsor;
 
 namespace xpan.AzaleaServiceBus.DependencyInjectionServiceHost
 {
     internal class DependencyFactory
     {
-        private static readonly WindsorContainer container = new WindsorContainer();
+        private readonly WindsorContainer container;
 
-        public static IWindsorContainer Container
+        public DependencyFactory(WindsorContainer container)
         {
-            get { return container; }
+            this.container = container;
         }
 
-        public static T Resolve<T>()
+        public T Resolve<T>()
         {
-            return Container.Resolve<T>();
+            return container.Resolve<T>();
         }
 
-        public static object Resolve(Type type)
+        public object Resolve(Type type)
         {
-            return Container.Resolve(type);
+            return container.Resolve(type);
         }
     }
 }

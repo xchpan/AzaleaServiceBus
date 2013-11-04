@@ -1,20 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Xml;
 using xpan.AzaleaServiceBus.RepositoryContracts;
+using xpan.AzaleaServiceBus.ServiceContracts;
 
 namespace xpan.AzaleaServiceBus.ServiceImplementation
 {
     public class MessageDispatcher : IMessageDispatcher
     {
         private readonly IRegistrationRepository registrationRepository;
-        private readonly MessageSubscriber subscriber;
+        private readonly ISubscriptionRepository subscriptionRepository;
 
         public MessageDispatcher(IRegistrationRepository registrationRepository,
-            MessageSubscriber subscriber)
+            ISubscriptionRepository subscriptionRepository)
         {
             this.registrationRepository = registrationRepository;
-            this.subscriber = subscriber;
+            this.subscriptionRepository = subscriptionRepository;
         }
 
         public void OnDataAvailable(Guid registrationId, XmlElement data)
@@ -25,10 +27,27 @@ namespace xpan.AzaleaServiceBus.ServiceImplementation
         private void Dispatch(Guid registrationId, XmlElement data)
         {
             Type dataType = registrationRepository.GetDataType(registrationId);
-            if (subscriber != null)
+            foreach (ISubscriberCallback callback in FindCallbacks(dataType, data))
             {
-                subscriber.OnDataAvailable(dataType, data);
+                callback.OnDataAvailable(data);
             }
+        }
+
+        private IEnumerable<ISubscriberCallback> FindCallbacks(Type dataType, XmlElement data)
+        {
+            foreach (SubscribeRequest request in subscriptionRepository.Keys)
+            {
+                if (request.DateType == dataType && MatchXPaths(request.XPathPredicts, data))
+                {
+                    yield return subscriptionRepository[request];
+                }
+            }
+        }
+
+        private bool MatchXPaths(List<string> xPaths, XmlElement data)
+        {
+            throw new NotImplementedException();
+            ;
         }
     }
 }

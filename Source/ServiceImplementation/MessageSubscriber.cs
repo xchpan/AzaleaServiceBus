@@ -34,30 +34,5 @@ namespace xpan.AzaleaServiceBus.ServiceImplementation
             ISubscriberCallback callback = callbackExtractor.GetCallback();
             subscriptoinRepository.Remove(callback);
         }
-
-        public void OnDataAvailable(Type dataType, XmlElement data)
-        {
-            foreach (ISubscriberCallback callback in FindCallbacks(dataType, data))
-            {
-                callback.OnDataAvailable(data);
-            }
-        }
-
-        private IEnumerable<ISubscriberCallback> FindCallbacks(Type dataType, XmlElement data)
-        {
-            foreach (SubscribeRequest request in subscriptoinRepository.Keys)
-            {
-                if (request.DateType == dataType && MatchXPaths(request.XPathPredicts, data))
-                {
-                    yield return subscriptoinRepository[request];
-                }
-            }
-        }
-
-        private bool MatchXPaths(List<string> xPaths, XmlElement data)
-        {
-            throw new NotImplementedException();
-            ;
-        }
     }
 }
