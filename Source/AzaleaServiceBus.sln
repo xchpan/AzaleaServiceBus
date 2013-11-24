@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionServiceH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHost", "ConsoleHost\ConsoleHost.csproj", "{C5493FE2-CEC0-491C-9053-4D0C7BD0292D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleClients", "SampleClients", "{75D565F2-3616-4A0B-8372-7672D2AFDD9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePublisher", "SamplePublisher\SamplePublisher.csproj", "{B8CB7F0D-2BA2-4DC6-BD0E-168229F9A9D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,8 +59,15 @@ Global
 		{C5493FE2-CEC0-491C-9053-4D0C7BD0292D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5493FE2-CEC0-491C-9053-4D0C7BD0292D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5493FE2-CEC0-491C-9053-4D0C7BD0292D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8CB7F0D-2BA2-4DC6-BD0E-168229F9A9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8CB7F0D-2BA2-4DC6-BD0E-168229F9A9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8CB7F0D-2BA2-4DC6-BD0E-168229F9A9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8CB7F0D-2BA2-4DC6-BD0E-168229F9A9D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8CB7F0D-2BA2-4DC6-BD0E-168229F9A9D4} = {75D565F2-3616-4A0B-8372-7672D2AFDD9A}
 	EndGlobalSection
 EndGlobal
